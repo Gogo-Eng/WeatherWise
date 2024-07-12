@@ -49,11 +49,6 @@ header .branding .logo {
 }
 
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
 input[type="text"] {
     border-radius: 10px;
     padding: 10px 20px 10px 100px;
