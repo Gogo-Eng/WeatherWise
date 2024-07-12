@@ -48,11 +48,6 @@ header .branding .logo {
     margin-right: 0px; /* Space between logo and text */
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-}
-
 header nav ul li {
     margin-left: 20px;
 }
