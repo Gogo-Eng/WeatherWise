@@ -69,12 +69,6 @@ input[type="text"] {
     padding: 40px;
 }
 
-
-
-.hero p {
-    font-size: 1rem;
-    margin: 1rem 0;
-}
 .error {
     color: red;
     font-weight: bold;
