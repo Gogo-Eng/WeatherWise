@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherWise</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="branding">
+                <img src="../static/images/my_weather.jpg" alt="WeatherWise Logo" class="logo">
+                <h3>WeatherWise</h3>
+            </div>
+        </div>
+       
+    </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="form-section">
+        <div class="container">
+            <form action="/submit_city" method="post">
+                <input type="text" id="city" name="city" placeholder="Enter city name" required>
+                <button type="submit">Submit</button>
+            </form>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h3>Features</h3>
+            <div class="feature-list">
+                <div class="feature">
+                    <h4>Real-Time Updates</h4>
+                    <p>Get the latest weather updates as they happen.</p>
+                </div>
+                <div class="feature">
+                    <h4>Accurate Forecasts</h4>
+                    <p>Reliable weather forecasts for your location.</p>
+                </div>
+                <div class="feature">
+                    <h4>User-Friendly Interface</h4>
+                    <p>Easy to navigate and understand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <hr class="section-divider">
+            <h3>About</h3>
+            <p>WeatherWise is your go-to source for accurate and timely weather forecasts. Our mission is to provide users with the information they need to plan their day and stay safe during severe weather conditions.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <h3>Contact Us</h3>
+            <p>Email: contact@weatherwise.com</p>
+            <p>Follow us on social media:</p>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
