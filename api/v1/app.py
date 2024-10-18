@@ -1,10 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
+from api.v1.views import app_views  # type: ignore
 import requests
 
-app = Flask(__name__, template_folder='web_static/templates',
-            static_folder='web_static/static')
+app = Flask(__name__, template_folder='../../web_static/templates',
+            static_folder='../../web_static/static')
+app.register_blueprint(app_views, url_prefix="/")
 
 @app.route('/')
+def base():
+    return render_template('base.html')
+
+@app.route('/home')
 def home():
     return render_template('home.html')
 
