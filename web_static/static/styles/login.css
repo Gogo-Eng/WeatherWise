@@ -1,19 +1,12 @@
-  /* Basic reset */
-  * {
+ /* Basic reset */
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: none;
 }
 
 body {
     font-family: Arial, sans-serif;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
 }
 
 .container {
@@ -21,12 +14,8 @@ button {
     margin: 0 auto;
 }
 
-form {
-    margin-bottom: 20px;
-}
-
 header {
-    color: rgb(49, 49, 89);
+    color: #db1f1f;
     padding: 0;
     background: white; /* Corrected background color */
 }
@@ -48,30 +37,41 @@ header .branding .logo {
     margin-right: 0px; /* Space between logo and text */
 }
 
-
-input[type="text"] {
-    border-radius: 10px;
-    padding: 10px 20px 10px 100px;
-    margin: 0px;
-    font-size: 16px;
+header nav ul {
+    list-style: none;
+    display: flex;
 }
 
-.form-section {
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
     position: relative;
-    background: url('../images/nowweather.jpg') no-repeat center center/cover;
-    background-position: center;
+    background: url('../images/landing_page.jpg') no-repeat center center/cover;
+    background-position: center top;
     color: #fff;
     height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: left;
     padding: 40px;
 }
 
-.error {
-    color: red;
-    font-weight: bold;
+.hero h2 {
+    font-size: 3.5rem;
+    width: 100%;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin: 1rem 0;
 }
 
 .cta {
@@ -81,6 +81,7 @@ input[type="text"] {
     text-decoration: none;
     border-radius: 5px;
 }
+
 .cta:hover {
     background: #ff4757;
 }
