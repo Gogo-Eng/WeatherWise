@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeatherWise</title>
-    <link rel="stylesheet" type="text/css" href="../static/styles/home.css">
+    <title>Signup - WeatherWise</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/login.css">
 </head>
 <body>
     <!-- Header -->
@@ -16,28 +16,28 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="/feedback" class="cta">Feedbacks</a></li>
-                    <li><a href="login" class="cta">Profile</a></li>
-                    <li><a href="/" class="cta">Logout</a></li>
+                    <h9><li><a href="#features" class="cta">Features</a></li></h9>
+                    <li><a href="#about" class="cta">About</a></li>
+                    <li><a href="#contact" class="cta">Contact</a></li>
                 </ul>
             </nav>
         </div>
-        
     </header>
 
     <!-- Hero Section -->
-    <section class="form-section">
+    <section class="hero">
         <div class="container">
-            <form action="/submit_city" method="post">
-                <input type="text" id="city" name="city" placeholder="Enter city name" required>
-                <button type="submit">Submit</button>
+            <form action="/feedback" method="post">
+                <input type="text" id="feedback_text" name="feedback_text" placeholder="Enter your feedback_text" required>
+                <button type="submit" class="cta">submit</button>
             </form>
             {% if error %}
                 <p style="color: red;">{{ error }}</p>
             {% endif %}
-
-        </div>
+            <h2>Your Accurate Weather Forecast Partner</h2>
+            <p>Stay ahead of the weather with real-time updates and forecasts.</p>
         
+        </div>
     </section>
 
     <!-- Features Section -->
@@ -82,8 +82,8 @@
                 <li><a href="#">Instagram</a></li>
             </ul>
         </div>
-        <a href="/" class="logout">logout</a>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

@@ -53,7 +53,7 @@ header nav ul li a {
 
 .hero {
     position: relative;
-    background: url('landing_page.jpg') no-repeat center center/cover;
+    background: url('../images/landing_page.jpg') no-repeat center center/cover;
     background-position: center top;
     color: #fff;
     height: 70vh;

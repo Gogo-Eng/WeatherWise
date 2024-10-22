@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup - WeatherWise</title>
-    <link rel="stylesheet" type="text/css" href="../static/styles/signup.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/login.css">
 </head>
 <body>
     <!-- Header -->
@@ -27,7 +27,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            
+            <form action="/sessions" method="post">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                <button type="submit" class="cta">login</button>
+            </form>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
             <h2>Your Accurate Weather Forecast Partner</h2>
             <p>Stay ahead of the weather with real-time updates and forecasts.</p>
             <a href="/signup" class="cta">Sign up</a>

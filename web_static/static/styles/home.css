@@ -48,6 +48,27 @@ header .branding .logo {
     margin-right: 0px; /* Space between logo and text */
 }
 
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto; /* Push nav to the right */
+}
+
+header nav ul {
+    display: flex; /* Display the list horizontally */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
 
 input[type="text"] {
     border-radius: 10px;
@@ -81,6 +102,7 @@ input[type="text"] {
     text-decoration: none;
     border-radius: 5px;
 }
+
 .cta:hover {
     background: #ff4757;
 }
