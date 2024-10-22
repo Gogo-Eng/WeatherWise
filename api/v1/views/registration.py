@@ -5,7 +5,23 @@ from flask import abort, Flask, jsonify, make_response, request, redirect, rende
 from api.v1.views import app_views  # type: ignore
 from api.v1.auth.auth import Auth # type: ignore
 
-AUTH = Auth() 
+
+AUTH = Auth()
+
+@app_views.route('/feedback', methods=['GET', 'POST'], strict_slashes=False)
+def feedback():
+    if request.method == 'POST':
+        feedback_text = request.form.get('feedback_text')
+    
+        try:
+            session_id = request.cookies.get('session_id')
+            user_id = AUTH.get_user_from_session_id(session_id)
+            feedback = AUTH.accept_feedback(user_id, feedback_text=feedback_text)
+            return render_template('feedback.html', success='Email already registered')
+        except ValueError as e:
+            return str(e)
+    
+    return render_template('feedback.html')
 
 @app_views.route('/signup', methods=['GET', 'POST'], strict_slashes=False)
 def signup():
@@ -32,8 +48,8 @@ def login():
 
         if AUTH.valid_login(email, password):
             session_id = AUTH.create_session(email)
-            response = make_response(redirect(url_for('home')))  #redirect(url_for('app_views.home'))
-            response.set_cookie("session_id", session_id)
+            response = make_response(redirect(url_for('home')))  #(redirect(url_for('home')))
+            response.set_cookie("session_id", session_id, path='/', httponly=True)
             return response
         else:
             return render_template('login.html', error="Invalid credentials")

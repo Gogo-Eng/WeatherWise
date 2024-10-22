@@ -6,13 +6,14 @@ app = Flask(__name__, template_folder='../../web_static/templates',
             static_folder='../../web_static/static')
 app.register_blueprint(app_views, url_prefix="/")
 
+
 @app.route('/')
 def base():
     return render_template('base.html')
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html')   
 
 @app.route('/submit_city', methods=['POST'])
 def submit_city():

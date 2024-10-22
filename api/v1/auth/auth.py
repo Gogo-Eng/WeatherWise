@@ -4,6 +4,7 @@ Hashing and verifying passwords
 """
 
 import bcrypt
+from flask import request
 from models.db import DB # type: ignore
 from models.user import User # type: ignore
 from sqlalchemy.orm.exc import NoResultFound
@@ -44,6 +45,7 @@ class Auth:
             hashed_password = _hash_password(password)
             new_user = self._db.add_user(email, hashed_password)
             return new_user
+    
 
     def valid_login(self, email: str, password: str) -> bool:
         """ validates credentials """
@@ -83,6 +85,33 @@ class Auth:
                 return user
             except NoResultFound:
                 return None
+            
+    def accept_feedback(self, user_id, feedback_text: str) -> User:
+        """Accept feedback from the user associated with the cookie
+
+        Args:
+            feedback_text (str): The feedback text provided by the user
+
+        Returns:
+            Feedback: The Feedback object that was added to the database
+        """
+    
+        # Fetch the logged-in user's ID from the cookie
+        session_id = request.cookies.get('session_id')  # Get user ID from the cookie
+        print(session_id, "all")
+        user = self.get_user_from_session_id(session_id)
+        print(user)
+        print(user.id)
+        idd = user.id
+        if not idd:
+            raise ValueError("User is not logged in.")
+
+        
+        # Add feedback using the add_feedback function
+        feedback = self._db.add_feedback(user_id=user_id, feedback_text=feedback_text)
+        return feedback
+
+
 
     def destroy_session(self, user_id: int) -> None:
         """ removes user's session_id """
