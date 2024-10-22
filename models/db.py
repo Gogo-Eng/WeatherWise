@@ -5,7 +5,7 @@ from sqlalchemy import create_engine, tuple_
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
-from models.user import Base, User
+from models.user import Base, User, Feedback # type: ignore
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.exc import InvalidRequestError
 
@@ -73,6 +73,26 @@ class DB:
         if result is None:
             raise NoResultFound()
         return result
+
+    def add_feedback(self, user_id: str, feedback_text: str) -> User:
+        """Add a new feedback to the database
+
+        Args:
+            user_id (int): The ID of the user who is giving feedback (Foreign Key)
+            feedback_text (str): The text of the feedback
+
+        Returns:
+            Feedback: The Feedback object that was added to the database
+        """
+        if isinstance(user_id, User):  # Check if user_id is actually a User object
+            user_id = user_id.id
+    
+        # Create a new feedback record
+        new_feedback = Feedback(user_id=user_id, feedback_text=feedback_text)
+        self._session.add(new_feedback)
+        self._session.commit()
+        return new_feedback
+
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """Update the atttribute of an already existing user
